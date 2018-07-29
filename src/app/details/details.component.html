@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="row" *ngIf ='Currentview'>
+     <div class="col-md-12 col-sm-12 col-xs-12">
+        <div *ngIf="Currentview.url.substring(34,39)==='books'">
+             <p><i>Details of the book-</i><strong>{{Currentview.name}}</strong></p>
+             <div class="row">
+                <div class="myimage col-md-5 col-sm-6 col-xs-6">
+                    <img src="assets/images/books.jpg">
+                </div>
+                <div class="col-md-7 col-sm-6 col-xs-6">
+                  <p><strong>Authors :</strong>{{Currentview.authors}}</p>
+                  <p><strong>Publisher :</strong>{{Currentview.publisher}}</p>
+                  <p><strong>Country :</strong>{{Currentview.country}}</p>
+                  <p><strong>Released On: </strong>{{Currentview.released  | date}}</p>
+                </div>
+             </div>
+             <div class="col-md-12 col-sm-12 col-xs-12">
+                <p><i>Other Details:</i></p>
+                <p><strong>ISBN-</strong>{{Currentview.isbn}}</p>
+                <p><strong>Pages:</strong>{{Currentview.numberOfPages}}</p>
+                <p><strong>No. of Characters in this book :</strong>{{Currentview.characters.length}}</p>
+                <p><strong>No. of PovCharacters in this book :</strong>{{Currentview.povCharacters.length}}</p>
+             </div>
+        </div>
+         <div *ngIf="Currentview.url.substring(34,44)==='characters'">
+          <p><i>Details of Character:</i>{{Currentview.name}}</p>
+           <div class="row">
+              <div class="myimage1 col-md-3 col-sm-6 col-xs-6">
+                  <img src="assets/images/characters.jpg">      
+              </div>
+              <div class="col-md-9 col-sm-6 col-xs-6">
+                <p><strong>Gender :</strong>{{Currentview.gender}}</p>
+                <p><strong>Culture :</strong>{{Currentview.culture}}</p>
+                <p><strong>Aliases :</strong>{{Currentview.aliases}}</p>
+              </div>
+           </div>
+           <div class="col-md-12 col-sm-12 col-xs-12">
+            <br>
+              <p><i>Other Details:</i></p>
+              <p>This character is present in <strong>{{Currentview.books.length}}</strong> book/s</p> 
+              <p *ngIf="Currentview.tvSeries.length!=undefined && Currentview.tvSeries.length>0">
+                  <strong>Series:</strong> <span *ngFor="let series of Currentview.tvSeries;let first=first;let last=last">{{series}}{{last ? '' : ','}}</span>
+              </p>
+              <p><strong>PlayedBy:</strong>{{Currentview.playedBy}}</p>
+              <p><strong>povBooks-</strong>{{Currentview.povBooks.length}}</p>  
+          </div>
+        </div>
+       
+        <div *ngIf="Currentview.url.substring(34,40)==='houses'">
+          <p><i>Details of the house- </i><strong>{{Currentview.name}}</strong></p>
+           <div class="row">
+              <div class="myimage1 col-md-3 col-sm-6 col-xs-6">
+                  <img src="assets/images/house.jpg">
+              </div>
+              <div class="col-md-9 col-sm-6 col-xs-6">
+                <p><strong>Region :</strong>{{Currentview.region}}</p>
+                <p><strong>CoatofArms :</strong>{{Currentview.coatOfArms}}</p>
+                <p><strong>Aliases :</strong>{{Currentview.aliases}}</p>
+                <p><strong>words:</strong>{{Currentview.words}}</p>
+              </div>
+           </div>
+           <div class="col-md-12 col-sm-12 col-xs-12">
+           <br>
+           <p><i>Other Details:</i></p>
+            <p *ngIf="Currentview.titles.length!=undefined && Currentview.titles.length>0">
+              <strong>Titles :</strong> <span *ngFor="let title of Currentview.titles;let first=first;let last=last">{{title}}{{last ? '' : ','}}</span>
+            </p>
+            <p *ngIf="Currentview.seats.length!=undefined && Currentview.seats.length>0">
+               <strong> Seats : </strong><span *ngFor="let seat of Currentview.seats;let first=first;let last=last">{{seat}}{{last ? '' : ','}}</span>
+            </p>
+            <p *ngIf="Currentview.ancestralWeapons.length!=undefined && Currentview.ancestralWeapons.length>0">
+              <strong>Ancestral Weapons :</strong> <span *ngFor="let weapon of Currentview.ancestralWeapons;let first=first;let last=last">{{weapon}}{{last ? '' : ','}}</span>
+            </p>
+            <p><strong>Overlord:</strong>{{Currentview.overlord}}</p>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
